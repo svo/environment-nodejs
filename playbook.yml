@@ -1,0 +1,24 @@
+---
+- hosts: all
+
+  pre_tasks:
+
+    - name: Ensure pip is installed
+      apt: pkg=python-pip
+      become: yes
+      tags:
+      - nodejs
+
+    - name: Install python modules to support SNI SSL requests
+      pip: name={{ item }}
+      become: yes
+      with_items:
+      - urllib3
+      - pyopenssl
+      - ndg-httpsclient
+      - pyasn1
+      tags:
+      - nodejs
+
+  roles:
+     - .

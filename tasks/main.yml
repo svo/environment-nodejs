@@ -1,6 +1,6 @@
 
     - name: Get nodejs setup script
-      get_url: url=https://deb.nodesource.com/setup_6.x dest=~/nodejs-installer
+      get_url: url=https://deb.nodesource.com/setup_4.x dest=~/nodejs-installer
       become: yes
       tags:
       - nodejs
